@@ -1,0 +1,19 @@
+all: runem Magic
+runem: MagicTheComputing.cpp Combatant.h Combatant.cpp Mersenne.h Mersenne.cpp
+	@echo "n = 50"
+	g++ -Wall -lm -O3 MagicTheComputing.cpp Combatant.cpp Mersenne.cpp -o Magic -DPOPULATION_SIZE=50 -DSUBFOLDER=\"vsn=50/\"
+	./Magic
+	@echo "n = 100"
+	g++ -Wall -lm -O3 MagicTheComputing.cpp Combatant.cpp Mersenne.cpp -o Magic -DPOPULATION_SIZE=100 -DSUBFOLDER=\"vsn=100/\"
+	./Magic
+	@echo "n = 250"
+	g++ -Wall -lm -O3 MagicTheComputing.cpp Combatant.cpp Mersenne.cpp -o Magic -DPOPULATION_SIZE=250 -DSUBFOLDER=\"vsn=250/\"
+	./Magic
+	@echo "n = 500"
+	g++ -Wall -lm -O3 MagicTheComputing.cpp Combatant.cpp Mersenne.cpp -o Magic -DPOPULATION_SIZE=500 -DSUBFOLDER=\"vsn=500/\"
+	./Magic
+	
+Magic: MagicTheComputing.cpp Combatant.h Combatant.cpp Mersenne.h Mersenne.cpp
+	g++ -Wall -lm -O3 MagicTheComputing.cpp Combatant.cpp Mersenne.cpp -o Magic
+clean:
+	rm *.o Magic
