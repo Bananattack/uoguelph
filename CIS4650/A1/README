@@ -1,0 +1,31 @@
+--------------------------
+CIS*4650 Compilers
+Andrew Crowell
+acrowell@uoguelph.ca
+0545826
+
+Assignment #1
+--------------------------
+
+Compiling
+---------
+To compile, use the 'make' command. It will build the executable with gcc.
+
+Running the Program
+-------------------
+Once the assignment is compiled, you can run './scanner'. It will start reading any input from stdin, and dump token classifications on stdout.
+
+Notes
+-----
+* Input is assumed to be clean ASCII text, free of non-printable characters. I'm pretty sure things would still KIND of work,
+but the nonprintable characters would probably be treated as CHAR or STR sequences, and embedded zero-bytes \0 could probably mess things.
+* Integer sequences with a leading zero (and no x afterwards) followed by any non-octal digit, are treated as an INT.
+* Numberic types may have leading + signs.
+* Whitespace must separate each token, or else it will be parsed differently. For example the input "(a" (without quotes) is not an LPAREN followed by CHAR, it's a STR.
+* Matching for acceptable letters in patterns is done case-insensitively. For example, a CAR token can be Car or car or cAr, and a hex literal can be 0xbeef or 0XFACE.
+* There are no storage suffixes on numbers, so 1000L and 1.0f are both STR tokens.
+
+Good luck!
+
+
+
