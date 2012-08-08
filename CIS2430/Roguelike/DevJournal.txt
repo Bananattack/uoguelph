@@ -12,7 +12,7 @@ Student ID: 0545826
 =============================================
 
 =============================================
-Entry One (Thursday, 27 September 2007)
+Entry One (Thursday, 27 September 2007) 
 =============================================
 I downloaded all the milestone packages, and started to work things out.
 I was sort of surprised to note that the "example" code didn't compile,
