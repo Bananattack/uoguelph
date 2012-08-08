@@ -1,0 +1,34 @@
+<?xml version = "1.0"?>
+<level>
+	<name>BYOB</name>
+	<targettime>0.0</targettime>
+	<gravity>10.0</gravity>
+	<airPressure>0.0</airPressure>
+	<hint>Bring your own Bomb.</hint>
+	<goal>
+		<task>
+			<type>HappyMagicalRainbowBee</type>
+			<action>destroy</action>
+			<posX>362.0</posX>
+			<posY>279.5</posY>
+		</task>
+	</goal>
+	<object>
+		<widget>
+			<id>1</id>
+			<type>HappyMagicalRainbowBee</type>
+			<posX>222.0</posX>
+			<posY>257.0</posY>
+			<direction>NORTH</direction>
+			<isLocked>false</isLocked>
+		</widget>
+		<widget>
+			<id>2</id>
+			<type>Ball</type>
+			<posX>208.0</posX>
+			<posY>186.0</posY>
+			<direction>EAST</direction>
+			<isLocked>false</isLocked>
+		</widget>
+	</object>
+</level>

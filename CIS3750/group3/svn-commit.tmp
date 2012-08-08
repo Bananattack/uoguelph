@@ -1,0 +1,6 @@
+You can now see the lock status of all widgets by a faded overlay when 
+in free play mode.
+--This line, and those below, will be ignored--
+
+M    trunk/tim/GameController.java
+M    trunk/tim/GameDrawer.java

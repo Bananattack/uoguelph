@@ -1,0 +1,50 @@
+---------------------
+Revision Guidelines
+by Andrew G. Crowell
+---------------------
+
+When making revisions, please follow these rules.
+It may be a pain in the butt, but it makes everyone's life easier.
+
+* Documentation (other than this file) should go in the "docs/" folder of the SVN
+  This leaves our SVN base uncluttered, and also keeps thing sorted nicely.
+* When making classes, please don't append the word "TIM" to them. It's already taken care of,
+  since everything is now in a package named "tim". Remember to put a package statement at the top
+  of your file though:
+		package tim;
+* When making changes to someone else's source, document the changes!
+  To do this, please do something like this above the area edited:
+		// Name (YYYY-MM-DD): thing you changes
+  with multiple lines as necessary. For example:
+		// Andy (2008-10-01): Refactored class structure to be in package.
+		package tim;
+* Put any TIM-related files (other than the very very main class) under the "trunk/tim" package folder.
+* If you have to store files that need to be readed by the game, put them under "trunk/resources".
+* Try to group things like filenames and "magic numbers" into constants.
+  To do this in Java, you write "public static final" and then declare a variable:
+		public static final String crazyResourceFilename = "../resources/myresource.txt";
+		public static final int MAX_THINGS = 10;
+  Okay? Nice. If we need to change stuff later, it's easier if it's in a convenient spot near the top.
+  
+  DO THIS EVEN IF YOU THINK THE CODE IS TINY. Otherwise it might prove to be hell later.
+* Comment generously. If it was tricky for you, it's probably trickier for everyone else.
+* Commit atomically. This is to say, commit tiny changes as you go.
+  That way, there's less of a likelihood for bugs to arises.
+* Javadoc style comments are nice to have.
+  Understandably they're kind of verbose though, so not a requirement, just a nice thing.
+* Always write message about what you've changed when you commit. No exceptions, unless really accidental.
+* Don't commit unless you've compiled and tested what you're doing first. Bugs and errors are BAD.
+  If you can't compile and pass adequate testing as you go along, this means you're trying too much at once.
+* If you have to bend the rules, please ask first. Breaking conventions means badness.
+* Don't use "branches/" unless you're making changes that you think will radically destroy the codebase.
+  And if that's the case, talk first. I don't think that this will even happen in our scale of assignment work.
+* Try not to radically change the directory structure, or delete everything in trunk and then recopy it.
+  This is bad.
+* Always favor abstraction over quick hack-ups. Even if it takes longer. Refactoring is key for larger projects.
+  
+FAILURE TO READ THIS DOES NOT EXEMPT YOU FROM THE GUIDELINES. So please, try to read the above,
+even it's boring. I want this thing to be as organized as possible.
+
+Anyway, have a great day! :D
+
+- Andy

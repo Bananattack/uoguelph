@@ -1,0 +1,13 @@
+<project name="tim" default="build" basedir=".">
+	<property name="src" location="./"/>
+	<property name="build" location="./"/>
+	<target name="build">		
+		<javac srcdir="${src}"
+			 destdir="${build}">
+			 <include name="**/*.java" />
+		</javac>
+	</target>
+	<target name="run" depends="build">
+		<java dir="${build}" fork="true" classname="tim.GameWindow" />
+	</target>	
+</project>

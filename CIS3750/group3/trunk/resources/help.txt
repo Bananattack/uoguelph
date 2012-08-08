@@ -1,0 +1,81 @@
+<h1><b>The Incredible Machine!</b></h1>
+
+<h2><b>Overview</b></h2>
+
+This is a re-make of The Incredible Machine.  It comes with a free-play mode and a puzzle mode.  In free-play mode, any pieces can be placed on the screen (and have infinite quantity).  Each created level can be saved and loaded.  The "world" used in the game can be altered via air pressure and gravity.
+
+In terms of puzzle-mode, a semi-complete machine is loaded, and it's up to you to pick the appropriate parts to complete the puzzle.  Be careful though!  The longer it takes you to complete the machine, the lower your score!
+
+<h2><b><u>Menus</u></b></h2>
+
+<h2><b>File Menu</b></h2>
+<b><u>New</u></b>
+
+Choosing this option will re-allow you to choose between puzzle and free-play mode.
+
+<b><u>Open</u></b>
+
+Choosing this option while under free-play mode will allow you to edit a pre-existing session.  Choosing this option while under puzzle mode will allow you to open a specific level.
+
+<b><u>Save</u></b>
+
+This option is only available in free-play mode.  This will allow you to save your current session.
+
+<b><u>Save As</u></b>
+
+This option will allow you to save your session under a new name.
+
+<b><u>High Scores</u></b>
+
+This option will allow you to view the high score for the current level.
+
+<b><u>Quit</u></b>
+
+This will quit the program.
+
+<h2><b>Configure Menu</b></h2>
+<b><u>Preferences</u></b>
+
+This option will allow you to alter the air pressure and gravity of your session.  This is done via sliders.  The "Set" button will set the preferences once they are slid to their wanted values.  The "Default" button will set the values back to their defaults.
+
+<h2><b>Help Menu</b></h2>
+<b><u>Game Help</u></b> 
+
+You're here!
+
+<b><u>About</u></b>
+
+About your authors and other fun stuff. 
+
+<h2><b><u>Tool Bar</u></b></h2>
+
+<b>Play</b> - Run the machine.
+<b>Pause</b> - Pause the running of the machine.
+<b>Stop</b> - Stop the machine.
+<b>Rotate Counter-Clockwise</b> - Rotate the machine piece if possible.
+<b>Rotate Clockwise</b> - Rotate the machine piece if possible.
+
+<b>Reset Game</b> - Restore all preferences and restore pieces to their original positions.
+
+<b>Clear</b> - Clears the game of all machine pieces.
+<b>Delete</b> - Delete a specific piece.
+
+<h2><b><u>Playing Instructions</u></b></h2>
+<h2><b>All Modes</b></h2>
+
+<b><u>Placing a Piece</u></b>
+
+To place a piece, simply left-click the desired piece from the right side of the screen, and move the mouse to your desired position.  You cannot place pieces on top of each other.
+
+<b><u>Moving a Piece</u></b>
+
+To move a piece, simply left-click on the desired piece, and drag it to a new location.
+
+<b><u>Deleting a Piece</u></b>
+
+To delete a piece, select the piece you want to delete and move up to the delete button on the toolbar (the shredder) and left-click on it.
+
+<h2><b><u>Additional Notes</u></b></h2>
+
+In puzzle mode, there are a limited amount of pieces to work with.  In free-play mode, you can play with as many pieces as you want.
+

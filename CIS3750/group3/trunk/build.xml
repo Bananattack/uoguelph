@@ -1,0 +1,42 @@
+<project name="tim" default="build" basedir=".">
+	<property name="src" location="./"/>
+	<property name="build" location="./"/>
+	<property name="docs" location="javadocs"/>
+	<target name="build">		
+		<javac srcdir="${src}"
+			 destdir="${build}"
+			 classpath="${build}:phys2d.jar:junit.jar:widgets.jar">
+			 <include name="**/*.java" />
+		</javac>
+	</target>
+	<target name="run" depends="build">
+		<java dir="${build}" fork="true" classname="tim.GameWindow">
+			<classpath>
+				<pathelement location="." />
+				<pathelement location="widgets.jar" />				
+				<pathelement location="junit.jar" />
+				<pathelement location="phys2d.jar" />
+				<pathelement location="${build}" />
+			</classpath>
+		</java>
+	</target>	
+	<target name="test" depends="build">
+		<junit>
+		<test name="Test.TIMTestSuite" />
+		<classpath>
+			<pathelement location="." />
+			<pathelement location="junit.jar" />
+			<pathelement location="phys2d.jar" />
+			<pathelement location="${build}" />
+		</classpath>
+		</junit>
+	</target>
+	<target name="docs" description="Generates documentation for the classes">
+                <mkdir dir="docs" />
+                <javadoc destdir="${docs}" >
+                     <fileset dir="${src}/" includes="**/*.java" />
+					<tag name=".date" description="Date:" />
+                </javadoc>
+
+        </target>
+</project>

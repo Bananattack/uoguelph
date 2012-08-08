@@ -1,0 +1,32 @@
+<?xml version = "1.0"?>
+<level>
+	<name>Test level</name>
+	<targettime>10</targettime>
+	<gravity>10</gravity>
+	<airPressure>0</airPressure>
+	<hint>This is the hint...</hint>
+	<goal>
+		<task>
+			<widgetID>1</widgetID>
+			<action>destroy</action>
+		</task>
+	</goal>
+	<object>
+		<widget>
+			<id>1</id>
+			<type>Floor</type>
+			<posX>10</posX>
+			<posY>10</posY>
+			<direction>EAST</direction>
+			<isLocked>true</isLocked>
+		</widget>
+		<widget>
+			<id>2</id>
+			<type>Floor</type>
+			<posX>200</posX>
+			<posY>200</posY>
+			<direction>EAST</direction>
+			<isLocked>true</isLocked>
+		</widget>
+	</object>
+</level>
