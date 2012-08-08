@@ -1,0 +1,22 @@
+1) The function prototype for scanf.
+
+
+extern int scanf (__const char *__restrict __format, ...);
+
+2) The variable definition for stdout.
+
+
+extern struct _IO_FILE *stdout;
+
+3) The above program once it has been modified by cpp (start with the main() line and end with the last bracket of the program.
+
+
+int main() {
+ printf("Hello 1");
+
+
+
+
+ printf("Hello 3");
+
+}
