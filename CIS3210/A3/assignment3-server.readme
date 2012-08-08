@@ -1,0 +1,26 @@
+The udp server works on my Linux box. Its testing was not too thorough and
+there is no reason to believe that it is perfect.
+
+The server is made available for testing purposes and should not be left
+running alone.
+
+Specifically:
+1. denial of service was not taken into account.
+2. clever incorrect input may close the server.
+3. retransmissions are done blindly with only the legal datagrams
+retransmitted.
+4. requests for url (through port 80) work only sometimes.
+
+Some suggestions about testing your client:
+
+1. Start with one object of small size (a few hundred bytes). It does not
+have to be a pdf file (actually, it will be best if it is a text file).
+This way you can check whether your client receives what is expected.
+
+2. Use only local files at first.
+
+3. Keep the SHUFFLE and LOST values as 0 until you need to test
+retransmissions.
+
+4. When a dmamaged sequence of datagrams arrives, you can ask for a
+retransmission of datagrams that do not exist.
