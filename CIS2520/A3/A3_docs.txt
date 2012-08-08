@@ -1,0 +1,314 @@
+====================================================================
+
+Assignment 3 Documentation (assignment by Andrew Crowell - 0545826)
+
+====================================================================
+
+--------------------------------------------------------------------
+
+BinaryTree ADT:
+
+--------------------------------------------------------------------
+
+Definition:
+A set of objects stored in a tree with one left child and one right child,
+where objects on the left branch are "less than" their parent,
+and the objects on the right branch are "greater than" their parent.
+
+Operations:
+*	BinaryTreeNew
+	Creates a new empty binary tree.
+	PRE:	None
+	POST:	The new binary tree is allocated and returned.
+	ERRORS:	NULL - memory allocation failed.
+*	BinaryTreeFree
+	Frees a binary tree from memory.
+	PRE:	Binary tree was not already freed, pointer is valid binary tree reference.
+	POST:	The tree reference is destroyed. Any further tree operations are undefined.
+	ERRORS:	None
+*	BinaryTreeInsert
+	Inserts an item into a binary tree.
+	PRE:	None
+	POST:	The data is placed in the tree, stored according
+		to a compared order, where left branches are "less
+		than" their parents and right branches are "greater
+		than" their parents.
+	ERRORS:	None
+		(but if your tree grows unreasonably large,
+		there's a chance an item won't be added,
+		because it can fail if you're out of
+		memory. Highly unlikely to occur in practical use though)
+*	BinaryTreeRetrieve
+	Looks for an "equal" item in the tree, according
+	to the binary tree's comparison callback.
+	PRE:	None
+	POST:	Returns an item that is considered equal to the data passed in,
+		or NULL if there was nothing that matched.
+	ERRORS:	NULL - item not found
+*	BinaryTreePrint
+	Writes a string representation of the binary tree to an output stream.
+	PRE:	File handle is valid
+	POST:	The text representation is written to the file.
+	ERRORS:	None
+
+--------------------------------------------------------------------
+
+AVLTree ADT:
+
+--------------------------------------------------------------------
+
+Definition:
+A binary tree which is self-balancing and will rearrange its contents
+to achieve a near-perfect balance after insertion
+
+Operations:
+*	AVLTreeNew
+	Creates a new empty AVL tree.
+	PRE:	None
+	POST:	The new AVL tree is allocated and returned.
+	ERRORS:	NULL - memory allocation failed.
+*	AVLTreeFree
+	Frees a AVL tree from memory.
+	PRE:	AVL tree was not already freed, pointer is valid binary tree reference.
+	POST:	The tree reference is destroyed. Any further tree operations are undefined.
+	ERRORS:	None
+*	AVLTreeInsert
+	Inserts an item into an AVL tree.
+	PRE:	None
+	POST:	The data is placed in the tree, stored according
+		to a compared order, where left branches are "less
+		than" their parents and right branches are "greater
+		than" their parents. Additional steps are performed
+		in order to keep the tree near-perfectly balanced.
+	ERRORS:	None
+*	AVLTreeRetrieve
+	Looks for an "equal" item in the tree, according
+	to the AVL tree's comparison callback.
+	PRE:	None
+	POST:	Returns an item that is considered equal to the data passed in,
+		or NULL if there was nothing that matched.
+	ERRORS:	NULL - item not found
+*	AVLTreePrint
+	Writes a string representation of the AVL tree to an output stream.
+	PRE:	File handle is valid
+	POST:	The text representation is written to the file.
+	ERRORS:	None
+
+--------------------------------------------------------------------
+
+BinaryTreeNode ADT:
+
+--------------------------------------------------------------------
+
+Definition:
+A binary tree node is a single item in a tree, which has data
+associated with it, and has left and right child nodes,
+and some notion of balance
+
+Operations:
+*	BinaryTreeNodeNew
+	Creates a new tree node that is initially holding nothing,
+	associated with no other nodes, and balanced (for AVL nodes).
+	PRE:	None
+	POST:	
+	ERRORS:	NULL - memory allocation failed.
+*	BinaryTreeNodeFree
+	Frees a node from memroy.
+	PRE:	Node was not already freed, pointer is valid node reference.
+	POST:	The node reference is destroyed. Any further node operations are undefined.
+	ERRORS:	None
+*	BinaryTreeNodeSetLeft
+	Sets the node's left child node.
+	PRE:	None
+	POST:	Left child is changed.
+	ERRORS:	None
+*	BinaryTreeNodeSetLeft
+	Sets the node's right child node.
+	PRE:	None
+	POST:	Right child is changed.
+	ERRORS:	None
+*	BinaryTreeNodeSetData
+	Sets the node's data pointer
+	PRE:	None
+	POST:	Node stores the data passed.
+	ERRORS:	None
+*	BinaryTreeNodeGetLeft
+	Gets the node's left child node.
+	PRE:	None
+	POST:	Reference to the left child is returned to its caller.
+	ERRORS:	None
+*	BinaryTreeNodeGetRight
+	Gets the node's right child node.
+	PRE:	None
+	POST:	Reference to the right child is returned to its caller.
+	ERRORS:	None
+*	BinaryTreeNodeGetData
+	Gets the node's associated data.
+	PRE:	None
+	POST:	Reference to the data held by the node.
+	ERRORS:	None
+*	BinaryTreeNodePrint
+	Does an in-order traversal of the tree nodes,
+	printing all tree contents to a file
+	PRE:	None
+	POST:	Node and its children printed to file
+	ERRORS:	None
+*	BinaryTreeNodeGetHeight
+	Gets the height of the tree which starts at this node,
+	which is the maximum of its right and left subtree's lengths
+	plus one.
+	PRE:	None
+	POST:	Returns the height of the tree which starts at this node.
+	ERRORS:	0 - if the node is NULL.
+*	BinaryTreeNodeSetBalance
+	Sets the node's balance factor
+	PRE:	None
+	POST:	Changes the node's balance.
+	ERRORS:	None
+*	BinaryTreeNodeGetBalance
+	Gets the node's balance factor
+	PRE:	None
+	POST:	Returns the node's balance.
+	ERRORS:	None
+*	BinaryTreeNodeAVLInsert
+	Inserts a node into a tree starting at this node,
+	and using AVL insertion methods, balances itself.
+	PRE:	None
+	POST:	Returns the new "root" node of the tree previously starting at this node
+		after insertion of a new data node.
+	ERRORS:	None
+
+--------------------------------------------------------------------
+
+Solution to the 8 Queens problem
+
+--------------------------------------------------------------------
+
+My particular algorithm solves and prints all solutions to the N-queens problem.
+At N=8, there are 92 solutions. To save you scrolling through all of those (and
+because the terminal doesn't have a line buffer long enough to hold all the solutions),
+here's me using the tool, with all but the very last solution removed.
+
+overkill@overkill:~/CIS/CIS2520/A3$ ./8queens
+Please enter the size n of the chess board (n must be >= 4): 8
+Would you like to have solutions printed? (Y = yes, N = no): Y
+[ --  91 solutions removed for your sanity  -- ]
+Solution:
+        ---------------------------------
+        |   |###|   |###|   |###|   |#Q#|
+        ---------------------------------
+        |###|   |###| Q |###|   |###|   |
+        ---------------------------------
+        | Q |###|   |###|   |###|   |###|
+        ---------------------------------
+        |###|   |#Q#|   |###|   |###|   |
+        ---------------------------------
+        |   |###|   |###|   |#Q#|   |###|
+        ---------------------------------
+        |###| Q |###|   |###|   |###|   |
+        ---------------------------------
+        |   |###|   |###|   |###| Q |###|
+        ---------------------------------
+        |###|   |###|   |#Q#|   |###|   |
+        ---------------------------------
+
+Found 92 distinct solutions for n=8.
+
+
+--------------------------------------------------------------------
+
+The Frequency Counter
+
+--------------------------------------------------------------------
+
+In a file named TEST, I placed the following data:
+
+	Cheese is amazing, I assure you!
+	I implore you to try some.
+
+I then ran ./Freq twice, once with Binary, and then again with AVL.
+(The number before the colon is the place in the tree the item was stored,
+after the colon is the string representation of the data in the tree - which
+in this case was a structure containing a letter and its associated count)
+
+	overkill@overkill:~/CIS/CIS2520/A3$ ./Freq
+	Please enter your tree type (1 = Binary, 2 = AVL): 1
+
+	Enter the filename (or type "quit" to exit): TEST
+	2: Letter a = 3
+	1: Letter c = 1
+	3: Letter e = 6
+	4: Letter g = 1
+	2: Letter h = 1
+	4: Letter i = 5
+	6: Letter l = 1
+	5: Letter m = 3
+	6: Letter n = 1
+	8: Letter o = 5
+	9: Letter p = 1
+	7: Letter r = 3
+	3: Letter s = 5
+	6: Letter t = 2
+	5: Letter u = 3
+	6: Letter y = 3
+	4: Letter z = 1
+	Tree height = 9
+
+	overkill@overkill:~/CIS/CIS2520/A3$ ./Freq
+	Please enter your tree type (1 = Binary, 2 = AVL): 2
+
+	Enter the filename (or type "quit" to exit): TEST
+	5: Letter a = 3
+	4: Letter c = 1
+	5: Letter e = 6
+	6: Letter g = 1
+	3: Letter h = 1
+	4: Letter i = 5
+	5: Letter l = 1
+	2: Letter m = 3
+	3: Letter n = 1
+	4: Letter o = 5
+	5: Letter p = 1
+	1: Letter r = 3
+	2: Letter s = 5
+	4: Letter t = 2
+	3: Letter u = 3
+	5: Letter y = 3
+	4: Letter z = 1
+	Tree height = 6
+
+--------------------------------------------------------------------
+
+Binary vs AVL
+
+--------------------------------------------------------------------
+
+After several tests, it is made apparent that the AVL tree does a far better job of
+maintaining balance than a plain binary tree, which does no balancing other than
+deciding which end (left or right) of the search tree to place items. The AVL
+tree is often much shorter in depth than a binary tree once balanced. AVL trees
+show a benefit once there are more than 2 items in the tree. Until there are at least
+two items, it's possible for an AVL and binary tree to place the data in exactly the
+same manner. Now, since most people *usually* put in more than two items, AVL definitely
+wins that battle, although it has the tradeoff overhead on insertion. Ah well.
+
+--------------------------------------------------------------------
+
+Testing Methodology
+
+--------------------------------------------------------------------
+
+My ineffably awesome testing methodology consisted of trying out every operation that the ADT implemented.
+If it had a pre condition, I tested the "working" pre cases, and then I tried to manipulate function inputs
+to "break" the code by not obeying the preconditions. I examined the ADT before the operation and after the
+operation, and if it did not meet the expected postconditions, I knew that the ADT needed some error returns.
+These error returns were then checked for in my operation tests, or in the case of the frequency counter, I
+appropriately handled the error codes. Note that there aren't THAT many error codes, because MOST of the errors
+are caused by memory management with malloc and free, not actually with the ADT itself.
+
+I used printf() to debug code blocks to ensure that all conditional blocks were being properly executed. I was
+relentlessly trying to break my code with a variety of vicious data. It tests for pretty much ALL forms of idiocy.
+Some certain pre conditions are made to be smart assumptions, though. For instance, I assume you're using this
+for fairly small storage, such that your machine will not And there's some things that just CAN'T be
+tested in C, like ensuring pointers are valid. So these tests assume that the end user is slighly brain-dead,
+but at least is smart enough to use an interface by mostly following its preconditions.

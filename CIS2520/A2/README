@@ -1,0 +1,17 @@
+A2_docs.txt		The assignment 2 documentation
+adt/			Subdirectory containing ADT implementations
+	Element.c	The linked list element ADT implementation code.
+	Element.h	The linked list element ADT header file, for prototypes and definitions.
+	List.c		The list ADT implementation code.
+	List.h		The list ADT header file, for prototypes and definitions.
+	OrderedList.c	The ordered list ADT implementation code.
+	OrderedList.h	The ordered list ADT header file, for prototypes and definitions.
+	Table.c		The table ADT implementation code.
+	Table.h		The table ADT header file, for prototypes and definitions.
+Makefile		The makefile used by make, to build this project.
+OrderedListMenu.c	A menu for testing the Ordered List ADT.
+WordCount.c		The word counting program.
+example.txt		A test file for the word counter.
+TEST			A test file for the word counter.
+README			This file!
+

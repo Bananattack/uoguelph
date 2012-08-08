@@ -1,0 +1,595 @@
+====================================================================
+
+Assignment 2 Documentation (assignment by Andrew Crowell - 0545826)
+
+====================================================================
+
+--------------------------------------------------------------------
+
+OrderedList ADT:
+
+--------------------------------------------------------------------
+
+Definition:
+   A set of SORTED objects stored in a 2-way chained contiguous linear sequence,
+    always kept in order by a comparator.
+
+Operations:
+* OrderedListCreate
+	- Create new list initialized to empty
+	PRE:
+		void
+
+	POST:
+		new list is allocated and initialized; returns a
+		reference to new list
+
+	ERRORS:
+		NULL : memory allocation failure (allocation)
+* OrderedListDestroy
+ 		- De-allocate all memory associated with provided
+ 		  list object
+  
+ 	PRE:
+ 		void
+  
+ 	POST:
+ 		this list is destroyed; returns number of elements
+ 		that were in the list
+  
+ 	ERRORS:
+ 		void
+  
+ 
+* OrderedListClear
+ 		- De-allocate all memory associated with element
+ 		  structures of provided list, resetting state of
+ 		  list to empty
+  
+ 	PRE:
+ 		void
+  
+ 	POST:
+ 		this list is empty; returns number of elements that
+ 		were in the list
+  
+ 	ERRORS:
+ 		void
+  
+ 
+*
+  
+ 	OrderedListHead
+ 		- Adjust position to the beginning of provided list
+ 		- NOTE: this operation is non-destructive on an
+ 		  empty list
+  
+ 	PRE:
+ 		list is non-empty
+  
+ 	POST:
+ 		current & position reference the first element in
+ 		this list; returns a reference to this
+  
+ 	ERRORS:
+ 		NULL : list is empty
+  
+ 
+* OrderedListTail
+ 		- Adjust position to the end of provided list
+ 		- NOTE: this operation is non-destructive on an
+ 		  empty list
+  
+ 	PRE:
+ 		list is non-empty
+  
+ 	POST:
+ 		current & position reference the last element in
+ 		this list; returns a reference to this
+  
+ 	ERRORS:
+ 		NULL : list is empty
+  
+ 
+* OrderedListNext
+ 		- Move the the next element in the provided list
+  
+ 	PRE:
+ 		list is non-empty; list is not positioned at the
+ 		last element
+  
+ 	POST:
+ 		current & position now reference the element
+ 		succeeding the current one in this list;  returns 
+ 		a reference to this
+  
+ 	ERRORS:
+ 		NULL : list is empty
+ 		NULL : already at end of list
+  
+ 
+* OrderedListPrevious
+ 		- Move the the previous element in the provided list
+  
+ 	PRE:
+ 		list is non-empty; list is not positioned at the
+ 		first element
+  
+ 	POST:
+ 		current & postition now reference the element
+ 		preceeding the current one in this list; returns a
+ 		reference to this
+  
+ 	ERRORS:
+ 		NULL : list is empty
+ 		NULL : already at beginning of list
+  
+ 
+* OrderedListSetPosition
+ 		- Move to the "Nth" element in the provide dlist
+ 		- NOTE: elements are counted from 1 (not 0)
+  
+ 	PRE:
+ 		0 < index <= element_count
+  
+ 	POST:
+ 		current & position now reference the "Nth" element
+ 		in this list; returns a reference to this
+  
+ 	ERRORS:
+ 		NULL : element index out of bounds (index)
+  
+ 
+* OrderedListInsert
+ 		- Insert a new element containing the provided
+ 		  data reference according to ordering followed by list 
+ 		- NOTE: current reference remains unchanged
+  
+ 	PRE:
+ 		void
+  
+ 	POST:
+ 		element containing data reference is inserted into
+ 		this list, or is installed as
+ 		the new head of the list if it was emtpy; returns
+ 		a reference to this
+  
+ 	ERRORS:
+ 		NULL : new_element() failure
+  
+ 
+* OrderedListSearch
+ 		- Sequentially searches for an
+ 		  entry in the list.
+  
+ 	PRE:
+ 		list is non-empty
+  
+ 	POST:
+ 		returns a reference to the item if found
+ 		or NULL if not found.
+  
+ 	ERRORS:
+ 		NULL : list is empty
+ 		NULL : list does not contain supplied item
+  
+ 
+* OrderedListGetCurrent
+ 		- Obtain a reference to data from the current
+ 		  element data in the provided list
+  
+ 	PRE:
+ 		list is non-empty
+  
+ 	POST:
+ 		returns a reference to the data in the current
+ 		element in this list
+  
+ 	ERRORS:
+ 		NULL : list is empty
+  
+ 
+* OrderedListDeleteCurrent
+ 		- Remove current element from the provided list and
+ 		  obtain a reference to the data in the element
+  
+ 	PRE:
+ 		list is non-empty
+  
+ 	POST:
+ 		returns a reference to the data in the current
+ 		element in this list which no longer occurs in
+ 		the list;  new current element is removed's
+ 		successor
+  
+ 	ERRORS:
+ 		NULL : list is empty
+  
+ 
+* OrderedListIsEmpty
+ 		- Determine if provided list is empty
+  
+ 	PRE:
+ 		void
+  
+ 	POST:
+ 		returns 1 if this is empty, 0 otherwise
+  
+ 	ERRORS:
+ 		void
+  
+ 
+* OrderedListGetLength
+ 		- Determine number of elements (length) in
+ 		  provided list
+  
+ 	PRE:
+ 		void
+  
+ 	POST:
+ 		returns value of element_count
+  
+ 	ERRORS:
+ 		void
+  
+ 
+* OrderedListGetPosition
+ 		- Obtain numeric value of current position in
+ 		  provided list
+  
+ 	PRE:
+ 		void
+  
+ 	POST:
+ 		returns value of position
+  
+ 	ERRORS:
+ 		void
+  
+ 
+--------------------------------------------------------------------
+
+Table ADT:
+
+--------------------------------------------------------------------
+
+Definition:
+   A table is associative mapping of key values to data values.
+
+Operations:
+
+* tableCreate
+		- Create new table initialized to empty,
+		  with the given hash generator and
+		  equality comparator callback functions.
+
+	PRE:
+		none
+
+	POST:
+		new table is allocated and initialized; returns a
+		reference to new table
+
+	ERRORS:
+		NULL : memory allocation failure (allocation)
+
+
+* tableDelete
+		- De-allocate all memory associated with provided
+		  table object
+
+	PRE:
+		none
+
+	POST:
+		this table is destroyed; returns number of elements
+		that were in the table
+
+
+* tableAddEntry
+		- adds an entry into the hash table, which
+		  effectively maps the key to a value.
+
+	PRE:
+		void
+
+	POST:
+		element containing data reference is inserted into
+		this list AFTER the current one, or is installed as
+		the new head of the list if it was emtpy; returns
+		a reference to this
+
+
+* tableRemoveEntry
+		- Remove data associated with a given table key
+		  and obtain a reference to the data in the element
+
+	PRE:
+		void
+
+	POST:
+		returns a reference to the data at the key
+		in this table which no longer exists in
+		the table; Association entry is destroyed.
+
+	ERRORS:
+		NULL : entry associated with key not found
+
+
+* tableGetEntry
+		- Get value reference associated with a given table key
+
+	PRE:
+		void
+
+	POST:
+		returns a reference to the data at the key
+
+	ERRORS:
+		NULL : entry associated with key not found
+
+
+* tableWrite
+		- writes the table to an output stream
+		- NOTE: This violates the generic data
+		  interface because Dave gave permission
+		  to write a printout that actually knows
+		  the types associated with the keyvalue pairs.
+
+	PRE:
+		the output stream passed is a FILE* that
+		has the "r" property.
+
+	POST:
+		the table representation is dumped to the stream.
+
+
+* tableSize
+		- gets the physical table size
+
+	PRE:
+		void
+
+	POST:
+		returns the size
+
+
+* tableEntries
+		- gets the number of entries actually stored
+
+	PRE:
+		void
+
+	POST:
+		returns the entry count
+
+
+* tableLoad
+		- gets the load factor of the table.
+
+	PRE:
+		the size of the physical table isn't 0,
+		or else division by zero occurs.
+		But who the hell would want a zero-size table
+		anyway? 
+
+	POST:
+		returns the load factor of table,
+		which equals (entry count  physical size)
+
+* tableCreate
+		- Create new table initialized to empty,
+		  with the given hash generator and
+		  equality comparator callback functions.
+
+	PRE:
+		none
+
+	POST:
+		new table is allocated and initialized; returns a
+		reference to new table
+
+	ERRORS:
+		NULL : memory allocation failure (allocation)
+
+
+* tableDelete
+		- De-allocate all memory associated with provided
+		  table object
+
+	PRE:
+		none
+
+	POST:
+		this table is destroyed; returns number of elements
+		that were in the table
+
+
+* tableAddEntry
+		- adds an entry into the hash table, which
+		  effectively maps the key to a value.
+
+	PRE:
+		void
+
+	POST:
+		element containing data reference is inserted into
+		this list AFTER the current one, or is installed as
+		the new head of the list if it was emtpy; returns
+		a reference to this
+
+
+* tableRemoveEntry
+		- Remove data associated with a given table key
+		  and obtain a reference to the data in the element
+
+	PRE:
+		void
+
+	POST:
+		returns a reference to the data at the key
+		in this table which no longer exists in
+		the table; Association entry is destroyed.
+
+	ERRORS:
+		NULL : entry associated with key not found
+
+
+* tableGetEntry
+		- Get value reference associated with a given table key
+
+	PRE:
+		void
+
+	POST:
+		returns a reference to the data at the key
+
+	ERRORS:
+		NULL : entry associated with key not found
+
+
+* tableWrite
+		- writes the table to an output stream
+		- NOTE: This violates the generic data
+		  interface because Dave gave permission
+		  to write a printout that actually knows
+		  the types associated with the keyvalue pairs.
+
+	PRE:
+		the output stream passed is a FILE* that
+		has the "r" property.
+
+	POST:
+		the table representation is dumped to the stream.
+
+
+* tableSize
+		- gets the physical table size
+
+	PRE:
+		void
+
+	POST:
+		returns the size
+
+
+* tableEntries
+		- gets the number of entries actually stored
+
+	PRE:
+		void
+
+	POST:
+		returns the entry count
+
+
+* tableLoad
+		- gets the load factor of the table.
+
+	PRE:
+		the size of the physical table isn't 0,
+		or else division by zero occurs.
+		But who the hell would want a zero-size table
+		anyway? 
+
+	POST:
+		returns the load factor of table,
+		which equals (entry count  physical size)
+
+
+--------------------------------------------------------------------
+
+How I Designed the Ordered List ADT and its Search Operation
+
+--------------------------------------------------------------------
+
+My ordered list ADT mostly wraps around Dave's list ADT supplied with assignment 1. The main difference is how list
+insertions are affected. List insertion no longer has a notion of current position, but rather iterates through the list,
+comparing entries by checking for the first location n in the list where the item being inserted is less than that item n,
+effectively keeping insertion sorted. In order to compare "generic" data, it needed a function pointer that could interpret
+the values of two void* pointers into meaningful (and comparable) information.
+
+The search operation on the ordered list uses a sequential searching algorithm, because it is the most efficient and
+by far the easiest-to-write search performable on a linked list chained data structure. Binary search would NOT perform
+well on the linked list, because the listMoveToNth() operation is expensive. So what does a sequential search entail?
+Basically, start at the first item in the list (assuming the list is not empty), and iterate through one-by-one until the data
+is either found whilst traversing (returning the data found), or reaches the end of the list (returning NULL, a fairly straightforward
+error code for "not there").
+
+--------------------------------------------------------------------
+
+Example Usage of Word Count
+
+--------------------------------------------------------------------
+
+In a file named TEST, I placed the following data:
+
+	this is a silly test
+	so very silly
+	so very silly
+	such a silly test
+
+I then ran ./WordCount:
+
+	- Word Count Utility -
+	Enter file name ("quit" to exit): TEST
+
+	Word count for TEST:
+
+	Hash entry 0
+	        this: 1
+	        is: 1
+	Hash entry 3
+	        very: 2
+	Hash entry 6
+	        so: 2
+	        such: 1
+	Hash entry 7
+	        silly: 4
+	Hash entry 8
+	        test: 2
+	Hash entry 9
+	        a: 2
+
+	Summary:
+	--------
+	table entries = 8
+	table size = 11
+	load factor = 0.727273
+
+
+--------------------------------------------------------------------
+
+About the Hashing Function
+
+--------------------------------------------------------------------
+
+The hashing function used by the WordCount is horrible. It simply returns the sum of the ASCII values of each character.
+But it gets worse. In order to keep the hash in table's internal array bounds, I perform modulo by the table size.
+This means collisions galore. How do I remedy this? I make use of chaining, where each hash value has list associated with
+it which stores a key+index structure of all the items which hash to that particular value. This collision resolution
+would perform much better if: 1) the table ADT was passed a moderately smarter hashing method on allocation with some
+way of assigning magnitude to pieces of each string element, 2) the table size was larger.
+
+--------------------------------------------------------------------
+
+Testing Methodology
+
+--------------------------------------------------------------------
+
+My ineffably awesome testing methodology consisted of trying out every operation that the ADT implemented.
+If it had a pre condition, I tested the "working" pre cases, and then I tried to manipulate function inputs
+to "break" the code by not obeying the preconditions. I examined the ADT before the operation and after the
+operation, and if it did not meet the expected postconditions, I knew that the ADT needed some error returns.
+These error returns were then checked for in my operation tests, or in the case of the word counter, I made
+error codes to appease the interface the word count program expected.
+
+I used printf() to debug code blocks to ensure that all conditional blocks were being properly executed. I was
+relentlessly trying to break my code with a variety of vicious data. It tests for pretty much ALL forms of idiocy.
+Some certain pre conditions are made to be smart assumptions, though. I mean, who in the right mind would
+create a table that is either a negative size or zero? And there's some things that just CAN'T be
+tested in C, like ensuring pointers are valid. So these tests assume that the end user is slighly brain-dead,
+but at least is smart enough to use an interface by mostly following its preconditions.
+
+
+

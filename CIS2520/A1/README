@@ -1,0 +1,16 @@
+A1_docs.pdf		The assignment 1 documentation
+adt/			Subdirectory containing ADT implementations
+	CList.c		The contiguous list ADT implementation code.
+	CList.h		The contigous list ADT header file, for prototypes and definitions.
+	Queue.c		The queue ADT implementation code.
+	Queue.h		The queue ADT header file, for prototypes and definitions.
+	Stack.c		The stack ADT implementation code.
+	Stack.h		The stack ADT header file, for prototypes and definitions.
+ListMenu.c		A menu for testing the List ADT.
+Makefile		The makefile used by make, to build this project.
+Paren.c			The Parentheses Checker.
+parentest*		Test files for the Parentheses Checker.
+QueueMenu.c		A menu for testing the Queue ADT.
+README			This file!
+StackMenu.c		A menu for testing the Stack ADT.
+

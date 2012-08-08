@@ -1,0 +1,23 @@
+A4_docs.pdf		The assignment 3 documentation
+A4_docs.txt		The assignment 3 documentation (in plaintext)
+adt/			Subdirectory containing ADT implementations
+	Graph.c		The Graph ADT implementation code
+	Graph.h		The Graph ADT header file, for prototypes and definitions.
+	Vertex.c	The Vertex ADT implementation code
+	Vertex.h	The Vertex ADT header file, for prototypes and definitions.
+	Edge.c		The Edge ADT implementation code
+	Edge.h		The Edge ADT header file, for prototypes and definitions.
+	String.c	Useful dynamic string allocation routines, for a "String" ADT.
+	String.h	Prototypes for var dynamic string allocation routines, for a "String" ADT.
+	__EdgeVertexPrototypes.h	It, uhm, resolves a dependency issue where the Edge needs Vertex and Vertex needs Edge, by defining their structure here.
+	List.c		List ADT implementation
+	List.h		List ADT header file
+	Element.c	Element ADT implementation
+	Element.h	Element ADT header file
+Makefile		The makefile used by make, to build this project.
+GraphMenu.c		A driver program that enables testing for the Graph ADT
+P1			A test file for the Road program
+P2			A test file for the Analysis program
+P3			A test file for the Travel program
+README			This file!
+

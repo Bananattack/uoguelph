@@ -1,0 +1,12 @@
+/+aaa. 
+
+"/* string! with slash star in in */";
+
+char c = '/*a';
+x = a * b;
+
+/*
+	/*
+		blah blah  blah blah blah
+* * * 
+	*/

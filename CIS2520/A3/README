@@ -1,0 +1,14 @@
+A3_docs.txt		The assignment 3 documentation
+adt/			Subdirectory containing ADT implementations
+	BinaryTreeNode.c	The binary tree node ADT implementation code.
+	BinaryTreeNode.h	The binary tree node ADT header file, for prototypes and definitions.
+	BinaryTree.c		The binary tree ADT implementation code.
+	BinaryTree.h		The binary tree ADT header file, for prototypes and definitions.
+	AVLTree.c		The AVL tree ADT implementation code.
+	AVLTree.h		The AVL tree ADT header file, for prototypes and definitions.
+Makefile		The makefile used by make, to build this project.
+8queens.c		A program that solves the N-queens problem
+Freq.c			The letter frequency counting program.
+TEST			A test file for the word counter.
+README			This file!
+
