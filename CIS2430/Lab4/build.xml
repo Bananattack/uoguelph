@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+ <project name="TemperatureTest" default="compile">
+     <target name="compile"
+      description="compile the Java source code to class files">
+         <javac srcdir="." classpath=".:/usr/local/eclipse/plugins/org.junit4_4.3.1/junit.jar" />
+     </target>
+ 	 <target name="jar" depends="compile">
+ 	    <jar destfile="TemperatureTest.jar"
+ 	         basedir="."
+ 	         includes="**/*.class, **/*.xml, **/*.java"
+ 	         />
+ 	 </target>
+ 	 <target name="run" depends="jar">
+ 	     <java classname="Lab4"
+ 	           classpath=".:/usr/local/eclipse/plugins/org.junit4_4.3.1/junit.jar"
+ 	           fork="true"
+ 	           />
+ 	 </target>
+ </project>

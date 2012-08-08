@@ -1,0 +1,108 @@
+=============================================
+
+Safari Massacre DEVELOPMENT JOURNAL
+
+---------------------------------------------
+
+CIS*2430
+Milestone 1 Dev Journal
+Andrew Crowell
+Student ID: 0545826
+
+=============================================
+
+=============================================
+Entry One (Thursday, 27 September 2007)
+=============================================
+I downloaded all the milestone packages, and started to work things out.
+I was sort of surprised to note that the "example" code didn't compile,
+and I spent a good few minutes mashing in the ommited functionality. Then
+I got a fun runtime invocation error:
+
+Exception in thread "main" java.lang.VerifyError: (class: rogueView/RoomView, method: <init> signature: (LrogueView/GridTile;LrogueModel/Room;)V) Incompatible argument to function
+at rogueView.DungeonLevel.<init>(DungeonLevel.java:78)
+at rogueView.DungeonView.makeNewLevel(DungeonView.java:87)
+at rogueModel.RogueTest.<init>(RogueTest.java:46)
+at rogueModel.RogueTest.main(RogueTest.java:120)
+
+That was fun. The rogueModel package has a bunch of oddness and inconsistency.
+I decided to post something on the forums.
+
+=============================================
+Entry Two (Friday, 28 September 2007)
+=============================================
+Discovered some funky caching with Eclipse was causing my problem.
+Fun. Well, a new runtime problem, this time NullPointerExceptions
+in the rogueView package. I figure it must be something wrong with my code.
+The DungeonView window was created okay though! Strange.
+The odd thing, though, is that the window is blank. I wonder if it has
+to do with Beryl as a window manager...
+
+=============================================
+Entry Three (Tuesday, 2 October 2007)
+=============================================
+Well, I couldn't find anything in MY code that suggests I was creating
+a null in my internals. So I'm going to post on the forums. I also
+can't get Eclipse to display the DungeonView JFrame properly in Ubuntu Fiesty.
+So, screw that, I'm using Eclipse under Windows Java instead.
+
+It seems to be in my Hallway code, because it'll load a dungeon map
+if I just put in rooms.
+
+=============================================
+Entry Four (Wednesday, 3 October 2007)
+=============================================
+So, uhhh... Apparently the null pointer exceptions were caused by my
+hallway room directions being backwards. New null pointer exception! Great.
+
+Later today: Oh crap. Apparently if the rooms are too large, the hallways
+won't be created, which causes explosions. Whoops. Now my dungeon works at last.
+Now to implement the fun bits.
+
+=============================================
+Entry Five (Thursday, 4 October 2007)
+=============================================
+Now that main engine is sort of working, I decided that in order to get nice
+object-oriented stuff I want to extend the StoryElement
+and give the extension a bunch more useful interfacing things. Like a
+move(direction) method, getObstruction(direction), findAdjacentNPC(direction),
+and spawnAt(x, y) and removeFromMap() or something. Then the player and monster
+logic can be vastly deuglified when I get to them.
+
+=============================================
+Entry Six (Friday, 5 October 2007)
+=============================================
+Implemented a lot of the "GameElement" object junk that makes the DungeonView
+interfacing with StoryElements a lot nicer. The player movement is done.
+I got it to bind the arrow keys for movement by examining the getKeyCode()
+value or whatever on the KeyEvents. Next on the agenda, monsters.
+
+=============================================
+Entry Seven (Monday, 8 October 2007)
+=============================================
+Monsters added. They tard around the map in a silly random fashion.
+Made the Player and Monster both inherit from a Combatant class, which
+extends the GameElement class, which allows me to implement the
+combat routines a lot easier. For a placeholder, I put in a dumb attack()
+method that just prints "<THIS> attacks <THAT>!" messages. I need
+some sort of message queue so that multiple messages don't get repeatedly overwritten.
+
+=============================================
+Entry Eight (Tuesday, 9 October 2007)
+=============================================
+Added a message queue, and actual battle. HP, attack, defense, accuracy, evasion.
+Also, death. Yay. Put in a teleporter as well. New levels can be accessed!
+All levels have randomly sized rooms with randomly placed monsters and teleporter.
+If I have time, I might add experience levels for combatants.
+
+=============================================
+Entry Nine (Friday, 12 October 2007)
+=============================================
+Added in experience points and leveling up. Finished up the fun part of
+mashing javadoc comments all over the place last night. Nice. Aaaand, I found
+out how to patch Beryl to properly display Java Swing components.
+Now everything works normal. Now I'm just piecing together the
+ant file to compile with ant instead of Eclipse. Then I'm compiling this
+beast and I'm done with it. This is now excessively documented for reading
+pleasure. Okay, well, I'm done! It works. I tested it quite extensively.
+Submission time.

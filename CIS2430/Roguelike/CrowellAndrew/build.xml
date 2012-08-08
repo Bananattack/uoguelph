@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<project name="PurpleAwesome" default="compile">
+	<property name="src" value="./src"/>
+	<property name="build" value="./bin"/> 
+	<property name="docs" value="./doc"/> 
+
+	<target	name="compile"
+		description="compile the Java source code to class files">
+		<mkdir dir="${build}"/>
+	        <javac srcdir="${src}" destdir="${build}" classpath=".:${src}:./junit.jar:./rogueView2.1.jar" />
+	</target>
+	<target	name="build" depends="compile">
+	</target>
+	<target	name="javadoc" depends="compile"
+		description="Create Javadoc API documentation">
+		<mkdir dir="${docs}"/>
+		<javadoc
+			classpath=".:${src}" 
+			sourcepath="${src}"
+			destdir="${docs}">
+		<fileset dir="${src}">
+			<include name="**/*.java"/>
+		</fileset>
+		</javadoc>
+	</target>
+	<target name="run" depends="compile"
+		description="Run the game">
+ 	     <java classname="rogueModel.GameWindow"
+ 	           classpath=".:${build}"
+ 	           fork="true"
+ 	           />
+	</target>
+	<target name="junit" depends="compile"
+		description="Performs junit test cases">
+		<java classname="JUnitMain"
+ 	           classpath=".:${build}"
+ 	           />
+	</target>
+	<target name="clean" description="Removes previous build">
+		<delete verbose="true">
+			<fileset dir="${build}"/>
+		</delete>
+	</target>
+</project>

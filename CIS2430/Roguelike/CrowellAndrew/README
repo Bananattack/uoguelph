@@ -1,0 +1,89 @@
+
+=============================================
+
+CIS*2430 Milestone 3 - Purple Awesome Time XIII
+by Andrew Crowell, 0545826
+
+=============================================
+
+=============================================
+Table of Contents
+=============================================
+1. Story
+2. Controls
+[!!] 3. About This Code Package
+[!!] 4. Known Issues (very important!)
+
+=============================================
+1.	Story
+=============================================
+
+Once upon a time, our hero was out fishing.
+While at sea, (s)he tripped on his tackle box
+and fell into a vortex that transported
+him/her into another dimension.
+
+(S)he awoke, soaked, in rainbow-infested land
+inhabited by many ferocious and eccentric
+beasts. Now (s)he must combat and discover the
+wonders and puzzles of this bizarre other
+dimension and find a way home. Fun!
+
+=============================================
+2.	Controls
+=============================================
+
+You know, you could just look at the help ingame... but whatever.
+
+Arrow Keys - move
+W - Wear item
+U - Use item
+S - save game
+L - load game
+
+Using and wearing does interesting things for some of the items, try them all!
+Especially try using the toaster strudels, but only in moderation.
+
+=============================================
+[!!] 3.	About This Code Package
+=============================================
+
+The main java class to run this game is
+rogueModel.GameWindow. The reason it is in
+the package, and not outside is because the
+game's objects need to reference the game
+window to interact with certain aspects of the
+game, like the message output. Look, it just worked, okay?
+
+The folder structure of the package should be
+as follows:
+
+bin/	the class files made on compilation (when built with ant)
+doc/	the javadoc documentation (when built with ant)
+src/	the source folder
+	rogueView/	the rogueView package
+	rogueModel/	the rogueModel package
+		Teleporter.java
+README		this file
+build.xml	the ant file
+
+=============================================
+[!!] 4.	Known Issues
+=============================================
+
+* There are some instances where the monsters
+will not correctly remember they are engaged
+in combat. It has to do with some moderate
+quirkiness in regards to how the method
+rogueView.DungeonView.getContentsofAdjacentSquare()
+checks things, because it sometimes incorrectly
+resolves the position of the monster, resulting
+in the wrong characters being returned. MOST
+times though, the monster will continue combat
+once engaged.
+* There are times when the random placement of
+the monsters, items or the teleporter will cause
+the items and teleporter to "disappear"
+because the rogueView package does not know how
+to deal with overlapping conflicts in a smart
+manner.
