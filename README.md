@@ -2,7 +2,7 @@ University of Guelph - School Work and Stuff
 ============================================
 **by Andrew G. Crowell**
 
-Various undergraduate school work during 2006 - 2010, the span of my Honours Bachelor of Computing and Information Science degree program at the [University of Guelph](http://uoguelph.ca/). There were some neat projects in my time there, and I thought it'd be nice to have an online backup of my work. I make no guarantees about the quality, completeness, sanity, or suitability of any of these projects.
+Various undergraduate school work during 2006 - 2010, the span of my Honours Bachelor of Computing and Information Science degree program at the [University of Guelph](http://uoguelph.ca/). There were some neat projects in my time there, and I thought it'd be nice to have an online backup of my work. I make no guarantees about the quality, completeness, sanity, or suitability of any of these projects. This repo does not include every single course (let alone CS course) that I took at university, but all of the source that I can find will be added here, for record-keeping and fun.
 
 Where not inhibited by other parties or licenses (such as external libraries, group work assignments, or work supplied by university faculty), these works are released under the **MIT License**:
 
