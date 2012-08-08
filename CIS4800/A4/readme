@@ -1,0 +1,46 @@
+--------------------------
+CIS*4800 Computer Graphics
+Andrew Crowell
+acrowell@uoguelph.ca
+0545826
+
+Assignment #4
+--------------------------
+
+Compiling
+---------
+To compile, use the 'make' command. It will build the executable with g++.
+It is expected that this is being compiled in an environment which is setup equivalently to the Mac labs.
+
+Running the Program
+-------------------
+Once the assignment is compiled, type 'a4'.
+
+The program should start, and in a primary window will present a 3d scene with a heightmap. 
+
+There is also a secondary window which presents sliders for the red/green/blue values of the heightmap's material color, a checkbox to randomize, and file input field to switch to a heightmap of your own.
+
+Use W and A to rotate the object.
+
+To exit the program, click the Exit button in the secondary window. (GLUT or GLUI seem to disable default close on a Mac, which is strange, but this oddity is also present in the samples.)
+
+
+Useful Contents
+---------------
+greyTextures/       folder containing sample PGM files
+a4.cpp              The main file which glues GLUI library calls and heightmap code together
+a4.h                A common header which includes everything.
+heightmap.cpp       
+heightmap.h         The heightmap object.
+vector*.h           Vector objects representing tuples of real numbers. I think Vector3 is the most fleshed out.
+light.h             The lighting object, responsible for GL light settings.
+color.h             The color object, capable of splitting an unsigned integer into an equivalent float array of color channel values
+transformation.h    The transformation object, capable of applying translation, scaling, and independent x, y, and z rotations to a scene.
+makefile            The file used to build this assignment
+
+
+Anyways. That should be all you need to to use and understand how my program works, I think.
+
+Good luck!
+
+- Andrew Crowell

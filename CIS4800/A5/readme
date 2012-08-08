@@ -1,0 +1,58 @@
+--------------------------
+CIS*4800 Computer Graphics
+Andrew Crowell
+acrowell@uoguelph.ca
+0545826
+
+Assignment #5
+--------------------------
+
+Compiling
+---------
+To compile, use the 'make' command. It will build the executable with g++.
+It is expected that this is being compiled in an environment which is setup equivalently to the Mac labs.
+
+Running the Program
+-------------------
+Once the assignment is compiled, type 'a5'.
+
+The program should start, and in a primary window will present a 3d object with a fake shadow cast under it. 
+
+There is also a secondary window which presents sliders for the red/green/blue values of the material color, sliders for the red/green/blue of the light diffuse color,
+and a radio button to customize the light positioning, and file input field to switch to a model of your own.
+
+Use the arrow keys or right-click and drag to rotate the object.
+Use Z/X or -/+ to adjust zoom levels.
+
+To exit the program, click the Exit button in the secondary window. (GLUT or GLUI seem to disable default close on a Mac, which is strange, but this oddity is also present in the samples.)
+
+
+Useful Contents
+---------------
+ply/                folder containing sample PLY files
+a5.cpp              The main file which glues GLUI library calls and polygon code together
+a5.h                A common header which includes everything.
+polygon.cpp         The polygon object. Uses some code from NVidia for calculating the correct fake-shadow projection given the plane and light positions.
+polygon.h           
+face.cpp            A particular face on a polygon. Consists of a list of vertices, and face normal. Uses Newell's Method to calculate normals for surfaces.
+face.h
+vertex.cpp          A vertex used within a polygon. Consists of position, normal, and list of adjacent faces. Averages the normals of all adjacent faces to get smooth lighting.            
+vertex.h
+ply*.*              Ply files linked to by the assignment spec. I use the ply library to load the polygon model.
+vector*.h           Vector objects representing tuples of real numbers. I think Vector3 is the most fleshed out.
+light.h             The lighting object, responsible for GL light settings.
+color.h             The color object, capable of splitting an unsigned integer into an equivalent float array of color channel values
+transformation.h    The transformation object, capable of applying translation, scaling, and independent x, y, and z rotations to a scene.
+makefile            The file used to build this assignment.
+
+
+Anyways. That should be all you need to to use and understand how my program works, I think.
+
+Some PLY models don't have accurate lighting, due to the order of their vertices.
+This is a limitation, and my attempts to detect whether there are clockwise or counterwise vertices made things worse, so I stopped trying that.
+So if you're noticing some oddities, it is probably due to normals being reversed on certain models (such as ply/cube.ply).
+Plenty of models have a mix of clockwise and counterclockwise vertex orderings and look fine, so I don't really know what's going on here.
+
+Good luck!
+
+- Andrew Crowell
