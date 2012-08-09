@@ -1,6 +1,0 @@
-
-name = Fangdrooler; # With a name like this, you need to be afraid!
-information=Lengthy_blurb_about_something_or_other;mp = 45;hp = 257;is_boss = true;skills = { Drool, #facegnaw,
-Gargle, Snort };kill_ratio=-51.2;
-
-FART=snorkle;
