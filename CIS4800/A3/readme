@@ -1,0 +1,69 @@
+--------------------------
+CIS*4800 Computer Graphics
+Andrew Crowell
+acrowell@uoguelph.ca
+0545826
+
+Assignment #3
+ENSURE WORD WRAP IS ON.
+--------------------------
+
+Compiling
+---------
+To compile, use the 'make' command. It will build the executable with g++.
+It is expected that this is being compiled in an environment which is setup equivalently to the Mac labs.
+
+Running the Program
+-------------------
+Once the assignment is compiled, type 'a3'.
+
+The program should start, and will present a 3d scene of a textured green frame with a red ball inside of it, and a blue player ball. The light is coming from a top-right direction.
+
+The ball should begin moving and bouncing around as the program runs. It will auto-correct any repeated bounce-cycles after 3 hits to make the bouncing more interesting. 
+
+There is also a secondary window which presents sliders of customizable lighting settings, and allows you to tweak the red/green/blue values of the ambient, diffuse and specular lights of the light source.
+
+This window will let you customize the angle of the ball, also. It expects angles in integer degrees between 0..360, or a -1 to indicate that a random angle should be used (the default).
+
+To exit the program, click the Exit button in the secondary window. (GLUT or GLUI seem to disable default close on a Mac, which is strange, but this oddity is also present in the samples.)
+
+Controlling the player
+----------------------
+
+Use WASD without holding Space to move the player along existing completed walls.
+When moving without space, the player can walk over the interior of any lines that have been drawn, or the interior of the frame.
+
+If Space is held, and WASD are pressed, the player can move onto and build over empty regions of the world.
+When a player's line connects two completed areas of the map, it fills in a single area which does not contain the Qix (there might be multiple in some weird cases, but I quit on the first enclosed region detected).
+The player cannot draw directly beside another one of their yellow lines, preventing some instances of getting stuck to walls but it may still be possible cage yourself in (just hit reset if this happens!).
+
+Implementation notes:
+---------------------
+The player moves in discrete tile steps instead of continuous coordinates to enable a much simpler algorithm (flood-fill) for detecting walls.
+
+Known Bugs
+----------
+
+It is sometimes possible to build a wall over the Qix.
+If this were the actual game this would kill you, but in this it just does nothing
+to stop you, so you can potentially break the ball physics.
+
+Similarly, the board may not fill properly for the last few percent remaining.
+In the actual game, it would cut you off and go to the next level before running into problems anyways.
+
+So both known problems are a result of there being no actual game logic preempting these things.
+
+Also, I realize that my texture seems very tiny, but it is seamless and would a look a lot less repetitive if not for the fact I was scaling a 256x256 texture into approximately a 32x32px or less cube.
+
+Acknowledgements
+----------------
+
+I referenced source from the sample code package in order to learn how to use how GL/GLUT/GLUI worked. Some elements are referenced from there. 
+
+However, for the most part, I've written a fresh C++ namespace with classes to handle all the different aspects, such as colors, lights, 2D/3D/4D vector types, collision detection, reflection angles, and renderable primitives.
+
+Anyways. That should be all you need to to use and understand how my program works, I think.
+
+Good luck!
+
+- Andrew Crowell
